@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { agregarLibro } from "../data/libros";
+import { useEffect, useState } from "react";
+import { agregarLibro, editarLibro } from "../data/libros";
 import Error from "./Error";
+import {useNavigate} from 'react-router-dom'
 
-const Formulario = () => {
+const Formulario = ({libro, id}) => {
 
     const [titulo, setTitulo] = useState("");
     const [autor, setAutor] = useState("");
@@ -12,6 +13,19 @@ const Formulario = () => {
     const [fecha_registro, setFecha_registro] = useState("");
     const [errores, setErrores] = useState("")
 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (libro) {
+          setTitulo(libro.titulo);
+          setAutor(libro.autor);
+          setDescripcion(libro.descripcion);
+          setCantidad(libro.cantidad);
+          setPrecio_unitario(libro.precio_unitario);
+          setFecha_registro(libro.fecha_registro);
+        }
+      }, [libro]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -20,16 +34,21 @@ const Formulario = () => {
             return errores
         }
 
+        const nuevoLibro ={
+            titulo,
+            autor,
+            descripcion,
+            cantidad: Number(cantidad),
+            precio_unitario: Number(precio_unitario),
+            fecha_registro
+        }
 
-        const formData = new FormData();
-        formData.append('titulo', titulo);
-        formData.append('autor', autor);
-        formData.append('descripcion', descripcion);
-        formData.append('cantidad', Number(cantidad));
-        formData.append('precio_unitario', Number(precio_unitario));
-        formData.append('fecha_registro', fecha_registro);
+        if(libro){
+            editarLibro(nuevoLibro, id)
+        } else {
+            agregarLibro(nuevoLibro)
+        }
 
-        agregarLibro(formData)
 
         setTitulo("");
         setAutor("");
@@ -39,7 +58,7 @@ const Formulario = () => {
         setPrecio_unitario(0)
         setErrores("")
 
-
+        return navigate("/libros")
     }
 
 
@@ -142,7 +161,7 @@ const Formulario = () => {
 
             </div>
 
-            <input className="bg-blue-800 hover:bg-blue-900 w-full mt-5 text-white uppercase font-bold px-3  py-2 rounded-md hover:cursor-pointer" type='submit' value={'Agregar libro'} />
+            <input className="bg-blue-800 hover:bg-blue-900 w-full mt-5 text-white uppercase font-bold px-3  py-2 rounded-md hover:cursor-pointer" type='submit' value={`${libro ? "Actualizar Libro" : "Agregar libro"}`} />
         </form>
     )
 }
