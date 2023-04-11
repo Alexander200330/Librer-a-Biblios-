@@ -3,6 +3,7 @@ import EditarLibros from "../pages/EditarLibros";
 import Inventario from "../pages/Inventario";
 import Layout from "../pages/Layout";
 import VistaLibros from "../pages/VistaLibros";
+import VistaVenta from "../pages/VistaVenta";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path: "/libro/:libroId/editar",
                 element: <EditarLibros />
+            },
+            {
+                path: "/VistaVenta",
+                element: <VistaVenta />
             }
         ]
     }
