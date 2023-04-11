@@ -18,8 +18,8 @@ function VistaVenta() {
     {books.map((venta) => (
       <div key={venta.id} className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
         <div className="px-6 py-4">
-          <h5 className="font-bold text-xl mb-2">{venta.attributes.titulo}</h5>
           <h6 className="text-gray-700 text-base mb-2">Cantidad vendida: {venta.attributes.cantidad_vendida}</h6>
+          <p className="text-gray-700 text-base mb-2">Id libro vendido: {venta.attributes.id_libro_vendido}</p>
           <p className="text-gray-700 text-base mb-2">Fecha de venta: {venta.attributes.fecha_venta}</p>
           <p className="text-gray-700 text-base mb-2">Precio unitario: {venta.attributes.precio_unitario}</p>
           <p className="text-gray-700 text-base mb-2">Total de venta: {venta.attributes.total_venta}</p>

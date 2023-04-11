@@ -20,6 +20,7 @@ const Libro = ({ libro, id, libros, setLibros }) => {
     return (
         <>
             <div className="bg-white rounded-lg mt-5 p-10 shadow-lg">
+                <h5 className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">ID: <span className="normal-case text-black font-normal text-base">{id}</span></h5>
                 <h5 className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">Título: <span className="normal-case text-black font-normal text-base">{libro.titulo}</span></h5>
                 <h6 className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">Autor: <span className="normal-case text-black font-normal text-base">{libro.autor}</span></h6>
                 <p className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">Descripción : <span className="normal-case text-black font-normal text-base">{libro.descripcion}</span></p>
