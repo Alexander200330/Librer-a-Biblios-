@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router-dom"
+import NavBtn from "../components/NavBtn";
 
 const Layout = () => {
 
@@ -10,8 +11,9 @@ const Layout = () => {
         <h1 className="text-center font-bold text-5xl text-white">Biblios</h1>
 
         <div className="mt-10">
-          <Link to='/inventario' className={`${location.pathname === '/inventario' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-3 py-1 text-xl font-bold hover:text-blue-300 block`}>Inventario</Link>
-          <Link to='/libros' className={`${location.pathname === '/libros' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Ver libros</Link>
+          <NavBtn path='inventario' name='Inventario' />
+          <NavBtn path='libros' name='Ver Libros' padding="pl-6"/>
+          <NavBtn path='ventas' name='Ventas'/>
         </div>
       </aside>
 
@@ -22,4 +24,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default Layout;
