@@ -1,9 +1,10 @@
 import { eliminarLibro } from "../data/libros"
-import {useNavigate} from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const Libro = ({ libro, id, libros, setLibros }) => {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleEliminar = async () => {
         const resultado = confirm("¿Deseas eliminar el libro?")
@@ -27,10 +28,14 @@ const Libro = ({ libro, id, libros, setLibros }) => {
                 <p className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">Cantidad: <span className="normal-case text-black font-normal text-base">{libro.cantidad}</span></p>
                 <p className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">fecha de registro: <span className="normal-case text-black font-normal text-base">{libro.fecha_registro}</span></p>
                 <p className="text-blue-800 leading-8 font-bold text-base uppercase text-justify">Precio unitario: <span className="normal-case text-black font-normal text-base">{libro.precio_unitario}</span></p>
-                <button className="bg-blue-700 hover:bg-blue-800 py-2 px-3 font-bold text-white text-center mr-5 uppercase rounded-md mt-2"
-                onClick={() => navigate(`/libro/${id}/editar`)}>Actualizar</button>
-                <button className="bg-red-600 hover:bg-red-700 py-2 px-3 font-bold text-white text-center mr-5 uppercase rounded-md"
-                    onClick={handleEliminar}>Eliminar</button>
+                {
+                    location.pathname === "/libros" && <>
+                        <button className="bg-blue-700 hover:bg-blue-800 py-2 px-3 font-bold text-white text-center mr-5 uppercase rounded-md mt-2"
+                            onClick={() => navigate(`/libro/${id}/editar`)}>Actualizar</button>
+                        <button className="bg-red-600 hover:bg-red-700 py-2 px-3 font-bold text-white text-center mr-5 uppercase rounded-md"
+                            onClick={handleEliminar}>Eliminar</button>
+                    </>
+                }
             </div>
         </>
 

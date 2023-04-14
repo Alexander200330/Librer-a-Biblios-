@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import EditarLibros from "../pages/EditarLibros";
 import Inventario from "../pages/Inventario";
 import Layout from "../pages/Layout";
+import LibrosClientes from "../pages/LibrosClientes";
 import VistaLibros from "../pages/VistaLibros";
 import VistaVenta from "../pages/VistaVenta";
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: "/VistaVenta",
                 element: <VistaVenta />
+            },
+            {
+                path: "biblios",
+                element: <LibrosClientes />
             }
         ]
     }

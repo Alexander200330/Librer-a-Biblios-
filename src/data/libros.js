@@ -64,3 +64,13 @@ export async function editarLibro(editarLibro, id) {
     throw error;
   }
 }
+
+export const buscarLibros = async (titulo, setLibrosFiltrados) => {
+  try {
+      const response = await fetch(`https://biblios.whatmsg.com/api/libros?filters[titulo][$containsi]=${titulo}`);
+      const data = await response.json();
+      setLibrosFiltrados(data.data);
+  } catch (error) {
+      console.error('Error al buscar libros:', error);
+  }
+};
