@@ -15,6 +15,8 @@ const Layout = () => {
           <Link to='/libros' className={`${location.pathname === '/libros' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Administrar libros</Link>
           <Link to='/VistaVenta' className={`${location.pathname === '/VistaVenta' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Ver ventas</Link>
           <Link to='/biblios' className={`${location.pathname === '/biblios' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-3 py-1 text-xl font-bold hover:text-blue-300 block`}>Libros</Link>
+          <Link to='/login' className={`${location.pathname === '/login' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Login</Link>
+
 
         </div>
       </aside>
