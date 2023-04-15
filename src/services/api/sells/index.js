@@ -1,29 +1,14 @@
 import apiBase from "../../../utilities/axios";
+import { config } from "../auth/config";
 
-const bookApi = apiBase('ventas');
+const bookApi = apiBase("ventas");
 
 export async function postSell(data) {
-    try
-    {   
-        const dt = await bookApi.post('/', {data: data});
-        return dt;
-    }
-    catch(error)
-    {
-        console.log(error);
-        throw new Error(error);
-    }
-}
-
-export async function updateSell(data, id) {
-    try
-    {
-        const dt = await bookApi.put(`/${id}`, {data: data});
-        return dt;
-    }
-    catch(error)
-    {
-        console.log(error);
-        throw new Error(error);
-    }
+	try {
+		const dt = await bookApi.post("/", { data: data }, config());
+		return dt;
+	} catch (error) {
+		console.log(error);
+		throw new Error(error);
+	}
 }
