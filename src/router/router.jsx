@@ -5,6 +5,7 @@ import Layout from "../pages/Layout";
 import LibrosClientes from "../pages/LibrosClientes";
 import VistaLibros from "../pages/VistaLibros";
 import VistaVenta from "../pages/VistaVenta";
+import Login from "../pages/login";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: "biblios",
                 element: <LibrosClientes />
+            },
+            {
+                path: "/login",
+                element: <Login />
             }
         ]
     }
