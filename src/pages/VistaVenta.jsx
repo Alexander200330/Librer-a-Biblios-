@@ -24,7 +24,7 @@ function VistaVenta() {
   return (
     <div className="container bg-gray-10">
       <h2 className='text-blue-800 font-bold text-2xl'>Ventas</h2>
-      <p className='mt-7 mb-7 text-base'>En este apartado puedes ver, editar y eliminar los libros diponibles en el inventario.</p>
+      <p className='mt-7 mb-7 text-base'>En este apartado puedes ver las ventas diponibles en el inventario.</p>
       {
         loading ? <div className="text-center mt-10">
           <div role="status">
