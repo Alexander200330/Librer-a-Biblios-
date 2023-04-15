@@ -4,16 +4,18 @@ import Libro from "../components/Libro";
 import { buscarLibros } from "../data/libros";
 
 const LibrosClientes = () => {
-  const [libros, setLibros] = useState([]);
   const [loading, setLoading] = useState(false);
   const [titulo, setTitulo] = useState("");
+  const [libros, setLibros] = useState([]);
   const [librosFiltrados, setLibrosFiltrados] = useState([]);
+  const [ordenAscendente, setOrdenAscendente] = useState(true);
 
   useEffect(() => {
     async function fetchLibros() {
       try {
         setLoading(true);
-        const res = await fetch(`${import.meta.env.VITE_API_URL}`);
+        let sortParam = ordenAscendente ? "titulo" : "titulo:desc"; // Definimos el parámetro de ordenamiento de manera dinámica
+        const res = await fetch(`https://biblios.whatmsg.com/api/libros?sort=${sortParam}`);
         const data = await res.json();
         setLibros(data.data);
       } catch (error) {
@@ -23,13 +25,20 @@ const LibrosClientes = () => {
       }
     }
     fetchLibros();
-  }, []);
+  }, [ordenAscendente]);
+
 
   const handleTituloChange = (e) => {
     const nuevoTitulo = e.target.value;
     setTitulo(nuevoTitulo);
     buscarLibros(nuevoTitulo, setLibrosFiltrados); // Llamada a la función buscarLibros con el nuevo título
   };
+
+  const handleOrdenClick = () => {
+    // Función para cambiar el orden ascendente o descendente
+    setOrdenAscendente(!ordenAscendente);
+  };
+
 
   return (
     <>
@@ -41,6 +50,8 @@ const LibrosClientes = () => {
           inventario.
         </p>
 
+        <button className="bg-blue-700 text-white p-1 rounded-md shadow-lg hover:bg-blue-800 transition-colors duration-300" onClick={handleOrdenClick}>{ordenAscendente === true ? "Ordenar descendiente" : "Ordenar Ascendente"}</button>
+
         <input
           type="text"
           value={titulo}
@@ -49,6 +60,7 @@ const LibrosClientes = () => {
           className="p-1 rounded-md shadow-lg"
         />
       </div>
+
 
       {loading ? (
         <div className="text-center mt-10">

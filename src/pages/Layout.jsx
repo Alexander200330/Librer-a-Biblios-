@@ -10,7 +10,8 @@ const Layout = () => {
         <h1 className="text-center font-bold text-5xl text-white">Biblios</h1>
 
         <div className="mt-10">
-          <Link to='/inventario' className={`${location.pathname === '/inventario' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-3 py-1 text-xl font-bold hover:text-blue-300 block`}>Inventario</Link>
+          <h2 className="pl-3 py-1 text-xl font-bold block text-white">Inventario</h2>
+          <Link to='/inventario' className={`${location.pathname === '/inventario' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Agregar Libro</Link>
           <Link to='/libros' className={`${location.pathname === '/libros' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Administrar libros</Link>
           <Link to='/VistaVenta' className={`${location.pathname === '/VistaVenta' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}>Ver ventas</Link>
           <Link to='/biblios' className={`${location.pathname === '/biblios' ? 'text-gray-100 bg-blue-800' : 'text-white'} pl-3 py-1 text-xl font-bold hover:text-blue-300 block`}>Libros</Link>
