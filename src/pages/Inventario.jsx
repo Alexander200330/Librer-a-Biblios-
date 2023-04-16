@@ -2,49 +2,15 @@ import { useNavigate, useActionData } from "react-router-dom"
 import Error from '../components/Error'
 import Formulario from "../components/Formulario";
 
-// export async function action({ request }) {
-
-//   const formData = await request.formData();
-//   const datos = Object.fromEntries(formData)
-
-
-//     const imagen = formData.get("imagen")
-
-
-
-
-
-//   // Validar formulario
-
-//   const errores = [];
-//   if (Object.values(datos).includes('')) {
-//     errores.push('Todos los campos son obligatorios')
-//   }
-
-//   // retornando errores
-
-// //   if (Object.keys(errores).length) {
-// //     return errores
-// //   }
-
-//   // Agregar libro
-
-//   await agregarLibro(datos, imagen)
-
-//   return redirect('/inventario')
-
-// }
-
 const Inventario = () => {
     
-
   const navigate = useNavigate()
 
   const errores = useActionData();
 
   return (
     <>
-      <h2 className='text-blue-800 font-bold text-2xl'>Inventario</h2>
+      <h2 className='text-blue-800 font-bold text-2xl'>Agregar Libro</h2>
       <p className='mt-2 text-base'>Llena todos los campos para registrar un nuevo libro.</p>
 
       <div className="flex justify-end">

@@ -40,6 +40,7 @@ const VistaLibros = () => {
                     :
                     libros.map(libro => <Libro key={libro.id} libro={libro.attributes} id={libro.id} libros={libros} setLibros={setLibros} />)
             }
+            
 
         </>
 
