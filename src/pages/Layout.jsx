@@ -21,11 +21,17 @@ const Layout = () => {
 				</h1>
 
 				<div className="mt-10">
+					<NavBtn
+						path=""
+						name={getUser() ? "Libros" : "Ver Libros"}
+					/>
 					{getUser() && (
-						<NavBtn path="inventario" name="Inventario" />
+						<NavBtn
+							path="inventario"
+							name="Inventario"
+							padding="pl-6"
+						/>
 					)}
-					<NavBtn path="" name="Ver Libros" padding="pl-6" />
-					{getUser() && <NavBtn path="VistaVenta" name="Ventas" />}
 					{getUser() && (
 						<NavBtn
 							path="ventas"
@@ -33,6 +39,7 @@ const Layout = () => {
 							padding="pl-6"
 						/>
 					)}
+					{getUser() && <NavBtn path="VistaVenta" name="Ventas" />}
 					{!getUser() && <NavBtn path="login" name="Logearse" />}
 					{getUser() && (
 						<button
