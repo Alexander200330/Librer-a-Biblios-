@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { postSell, updateSell } from "../services/api/sells";
+import { postSell } from "../services/api/sells";
 import Error from "./Error";
 import { useNavigate } from "react-router-dom";
 import sellSchema from "../models/sell/schema";

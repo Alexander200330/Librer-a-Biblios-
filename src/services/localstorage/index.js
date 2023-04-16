@@ -3,7 +3,7 @@ export function saveUser(user) {
 }
 
 export function getUser() {
-	return localStorage.getItem("loggedUser");
+	return JSON.parse(localStorage.getItem("loggedUser"));
 }
 
 export function destroyUser() {

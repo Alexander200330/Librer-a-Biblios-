@@ -23,9 +23,9 @@ export async function deleteBook(id) {
 	}
 }
 
-export async function updateBook(id) {
+export async function updateBook(data, id) {
 	try {
-		const dt = await bookApi.put(`/${id}`, { data: data }, config());
+		const dt = await bookApi.put(`/${id}`, { data }, config());
 		return dt.data;
 	} catch (error) {
 		console.log(error);
