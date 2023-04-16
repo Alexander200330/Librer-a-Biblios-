@@ -1,7 +1,17 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import {
+	Link,
+	Outlet,
+	redirect,
+	useLocation,
+	useNavigate,
+} from "react-router-dom";
+import NavBtn from "../components/NavBtn";
+import { destroyUser, getUser } from "../services/localstorage";
 
 const Layout = () => {
 	const location = useLocation();
+
+	const navigate = useNavigate();
 
 	return (
 		<div className="md:flex md:minmax-h-screen">
@@ -11,59 +21,30 @@ const Layout = () => {
 				</h1>
 
 				<div className="mt-10">
-					<h2 className="pl-3 py-1 text-xl font-bold block text-white">
-						Inventario
-					</h2>
-					<Link
-						to="/inventario"
-						className={`${
-							location.pathname === "/inventario"
-								? "text-gray-100 bg-blue-800"
-								: "text-white"
-						} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}
-					>
-						Agregar Libro
-					</Link>
-					<Link
-						to="/libros"
-						className={`${
-							location.pathname === "/libros"
-								? "text-gray-100 bg-blue-800"
-								: "text-white"
-						} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}
-					>
-						Administrar libros
-					</Link>
-					<Link
-						to="/VistaVenta"
-						className={`${
-							location.pathname === "/VistaVenta"
-								? "text-gray-100 bg-blue-800"
-								: "text-white"
-						} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}
-					>
-						Ver ventas
-					</Link>
-					<Link
-						to="/biblios"
-						className={`${
-							location.pathname === "/biblios"
-								? "text-gray-100 bg-blue-800"
-								: "text-white"
-						} pl-3 py-1 text-xl font-bold hover:text-blue-300 block`}
-					>
-						Libros
-					</Link>
-					<Link
-						to="/login"
-						className={`${
-							location.pathname === "/login"
-								? "text-gray-100 bg-blue-800"
-								: "text-white"
-						} pl-6 py-1 text-xl font-bold hover:text-blue-300 block`}
-					>
-						Login
-					</Link>
+					{getUser() && (
+						<NavBtn path="inventario" name="Inventario" />
+					)}
+					<NavBtn path="" name="Ver Libros" padding="pl-6" />
+					{getUser() && <NavBtn path="VistaVenta" name="Ventas" />}
+					{getUser() && (
+						<NavBtn
+							path="ventas"
+							name="Agregar Venta"
+							padding="pl-6"
+						/>
+					)}
+					{!getUser() && <NavBtn path="login" name="Logearse" />}
+					{getUser() && (
+						<button
+							className="pl-3 py-1 text-xl font-bold hover:text-blue-300 block text-white"
+							onClick={() => {
+								destroyUser();
+								navigate("/login");
+							}}
+						>
+							Salir
+						</button>
+					)}
 				</div>
 			</aside>
 

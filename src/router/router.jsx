@@ -1,12 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useNavigate } from "react-router-dom";
 import EditarLibros from "../pages/EditarLibros";
 import Inventario from "../pages/Inventario";
 import Layout from "../pages/Layout";
 import LibrosClientes from "../pages/LibrosClientes";
 import VistaLibros from "../pages/VistaLibros";
-import VistaVenta from "../pages/VistaVenta";
-import Login from "../pages/login";
 import SellPage from "../pages/SellPage";
+import Login from "../components/Login";
+import VistaVenta from "../pages/VistaVenta";
 
 const router = createBrowserRouter([
 	{
@@ -18,8 +18,12 @@ const router = createBrowserRouter([
 				element: <Inventario />,
 			},
 			{
-				path: "/libros",
-				element: <VistaLibros />,
+				path: "/ventas",
+				element: <SellPage />,
+			},
+			{
+				path: "/login",
+				element: <Login />,
 			},
 			{
 				path: "/libro/:libroId/editar",
@@ -30,16 +34,8 @@ const router = createBrowserRouter([
 				element: <VistaVenta />,
 			},
 			{
-				path: "biblios",
+				path: "/",
 				element: <LibrosClientes />,
-			},
-			{
-				path: "/login",
-				element: <Login />,
-			},
-			{
-				path: "/ventas",
-				element: <SellPage />,
 			},
 		],
 	},
