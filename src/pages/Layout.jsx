@@ -1,15 +1,11 @@
 import {
-	Link,
 	Outlet,
-	redirect,
-	useLocation,
 	useNavigate,
 } from "react-router-dom";
 import NavBtn from "../components/NavBtn";
 import { destroyUser, getUser } from "../services/localstorage";
 
 const Layout = () => {
-	const location = useLocation();
 
 	const navigate = useNavigate();
 
@@ -28,15 +24,15 @@ const Layout = () => {
 					{getUser() && (
 						<NavBtn
 							path="inventario"
-							name="Inventario"
-							padding="pl-6"
+							name="Agregar Libro"
+							padding="pl-3"
 						/>
 					)}
 					{getUser() && (
 						<NavBtn
 							path="ventas"
 							name="Agregar Venta"
-							padding="pl-6"
+							padding="pl-3"
 						/>
 					)}
 					{getUser() && <NavBtn path="VistaVenta" name="Ventas" />}

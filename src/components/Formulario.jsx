@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { agregarLibro, editarLibro } from "../data/libros";
 import Error from "./Error";
 import { useNavigate } from "react-router-dom";
 import { postBook, updateBook } from "../services/api/books";
@@ -66,7 +65,7 @@ const Formulario = ({ libro, id }) => {
 		setPrecio_unitario(0);
 		setErrores("");
 
-		return navigate("/libros");
+		return navigate("/");
 	};
 
 	// Obtener fecha actual
