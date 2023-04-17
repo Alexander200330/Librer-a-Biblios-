@@ -32,3 +32,13 @@ export async function updateBook(data, id) {
 		throw new Error(error);
 	}
 }
+
+export async function getBookById(id) {
+	try {
+		const dt = await bookApi.get(`/${id}`);
+		return dt.data;
+	} catch (error) {
+		console.log(error);
+		throw new Error(error);
+	}
+}

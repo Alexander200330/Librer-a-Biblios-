@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { redirect, useActionData, useNavigate } from "react-router-dom";
 import SellForm from "../components/SellForm";
 import { useRedirectIfNotAuth } from "../hooks/authorization";
 
 function SellPage() {
 	const navigate = useNavigate();
+	const [sellInfo, setSellInfo] = useState();
 
 	const errores = useActionData();
+
 	useRedirectIfNotAuth()();
 
 	return (
