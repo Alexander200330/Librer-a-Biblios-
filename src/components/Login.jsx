@@ -33,7 +33,7 @@ function Login() {
 	return (
 		<div className="flex justify-center items-center h-screen">
 			<div className="bg-white rounded-lg p-8 shadow-lg">
-				<h2 className="text-xl font-bold mb-4">Iniciar Sesión</h2>
+				<h2 className="text-xl font-bold mb-4 text-center">Iniciar Sesión</h2>
 				<form onSubmit={handleSubmit}>
 					<div className="mb-4">
 						<label

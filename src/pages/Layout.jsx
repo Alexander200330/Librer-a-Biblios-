@@ -36,7 +36,7 @@ const Layout = () => {
 						/>
 					)}
 					{getUser() && <NavBtn path="VistaVenta" name="Ventas" />}
-					{!getUser() && <NavBtn path="login" name="Logearse" />}
+					{!getUser() && <NavBtn path="login" name="Iniciar sesión" />}
 					{getUser() && (
 						<button
 							className="pl-3 py-1 text-xl font-bold hover:text-blue-300 block text-white"
@@ -45,7 +45,7 @@ const Layout = () => {
 								navigate("/login");
 							}}
 						>
-							Salir
+							Cerrar sesión
 						</button>
 					)}
 				</div>
