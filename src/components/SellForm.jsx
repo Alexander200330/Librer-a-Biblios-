@@ -180,7 +180,7 @@ const SellForm = ({ sellInfo, setSellInfo }) => {
 			<input
 				className="bg-blue-800 hover:bg-blue-900 w-full mt-5 text-white uppercase font-bold px-3  py-2 rounded-md hover:cursor-pointer"
 				type="submit"
-				value="Crear venta"
+				value="Registrar venta"
 			/>
 		</form>
 	);
